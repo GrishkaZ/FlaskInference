@@ -38,16 +38,13 @@ def upload():
 def image(filename): 
     
     imageSrc = url_for('static', filename='upload/'+filename)
-    image = open('.'+imageSrc, 'rb+')
     
-    if not image:
+    try:
+        pilImage = Image.open('.'+imageSrc)
+        result = classify(pilImage)
+        pilImage.close()
+    except Exception:
         return 'not found'
-    
-    pilImage = Image.open(io.BytesIO(image.read()))
-    image.close()
-    
-    result = classify(pilImage)
-    pilImage.close()
     
     return render_template("result.html", data=result, imageSrc=imageSrc)
 
