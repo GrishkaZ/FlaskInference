@@ -1,5 +1,4 @@
 import numpy as np
-from PIL import Image
 import json
 import onnxruntime as ort
 

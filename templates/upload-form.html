@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block style %}
+.upload-image {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+.upload-image__file {
+    margin-bottom: 20px;
+}
+{% endblock %}
+
+{% block content %}
+    <div class="upload-image">
+        <form method="post" action="/upload" enctype="multipart/form-data" class="upload-image__form"> 
+            <h1>upload image -> classify</h1>
+            <input class="upload-image__file" type="file" name="image">
+            <input class="upload-image__submit" type="submit" value="upload"/>
+        </form>
+    </div>
+{% endblock %}
