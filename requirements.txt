@@ -1,0 +1,4 @@
+flask>=2.0.0
+Pillow >= 9.3
+numpy
+onnxruntime==1.15.0
